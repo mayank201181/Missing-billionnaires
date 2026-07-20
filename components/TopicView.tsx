@@ -35,7 +35,10 @@ export function TopicView({ topic }: { topic: Topic }) {
   return (
     <div className="pt-6 space-y-5">
       <div>
-        <Link href="/" className="text-sm text-muted hover:text-accent">
+        <Link
+          href={topic.track === "wealth" ? "/wealth" : "/"}
+          className="text-sm text-muted hover:text-accent"
+        >
           ← All topics
         </Link>
         <div className="flex items-start gap-3 mt-2">

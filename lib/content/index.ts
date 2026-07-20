@@ -11,6 +11,14 @@ import { lifetimeSpending } from "./lifetime-spending";
 import { annuitiesInsurance } from "./annuities-insurance";
 import { humanCapital } from "./human-capital";
 import { taxesAndPractice } from "./taxes-and-practice";
+import { preservationMandate } from "./preservation-mandate";
+import { sizingBeatsSelection } from "./sizing-beats-selection";
+import { diversification } from "./diversification";
+import { assetMenu } from "./asset-menu";
+import { policyPortfolio } from "./policy-portfolio";
+import { concentratedWealth } from "./concentrated-wealth";
+import { drawdownsLeverage } from "./drawdowns-leverage";
+import { familyOffice } from "./family-office";
 
 export const TOPICS: Topic[] = [
   missingBillionaires,
@@ -25,11 +33,22 @@ export const TOPICS: Topic[] = [
   annuitiesInsurance,
   humanCapital,
   taxesAndPractice,
+  preservationMandate,
+  sizingBeatsSelection,
+  diversification,
+  assetMenu,
+  policyPortfolio,
+  concentratedWealth,
+  drawdownsLeverage,
+  familyOffice,
 ].sort((a, b) => a.order - b.order);
 
 export const TOPIC_BY_ID: Record<string, Topic> = Object.fromEntries(
   TOPICS.map((t) => [t.id, t])
 );
+
+export const BOOK_TOPICS = TOPICS.filter((t) => (t.track ?? "book") === "book");
+export const WEALTH_TOPICS = TOPICS.filter((t) => t.track === "wealth");
 
 export const QUESTION_INDEX: Record<string, MCQ & { topicId: string }> = {};
 for (const t of TOPICS) {

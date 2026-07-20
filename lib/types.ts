@@ -40,6 +40,8 @@ export interface Topic {
   icon: string; // emoji
   part: string; // book part, e.g. "Part I — Lessons from the coin flip"
   order: number;
+  /** Which learning track the topic belongs to. Defaults to "book" (The Missing Billionaires). */
+  track?: "book" | "wealth";
   tagline: string;
   intro: string;
   guide: GuideSection[];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Topic } from "@/lib/types";
 import { Md } from "@/lib/md";
 import { useStore } from "@/lib/store";

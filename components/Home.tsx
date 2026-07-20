@@ -1,29 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { TOPICS } from "@/lib/content";
+import { BOOK_TOPICS } from "@/lib/content";
 import { rankFor, useStore } from "@/lib/store";
+import { TopicGrid } from "./TopicGrid";
 
 export function Home() {
   const { ready, progress, dueReviews, todayStats, setGoalMinutes } = useStore();
   const rank = rankFor(progress.stars);
-
-  const parts: { part: string; topics: typeof TOPICS }[] = [];
-  for (const t of TOPICS) {
-    const bucket = parts.find((p) => p.part === t.part);
-    if (bucket) bucket.topics.push(t);
-    else parts.push({ part: t.part, topics: [t] });
-  }
-
-  const masteryOf = (topicId: string) => {
-    const topic = TOPICS.find((t) => t.id === topicId)!;
-    const maxStars = topic.quiz.reduce(
-      (sum, q) => sum + (q.difficulty === "challenge" ? 3 : q.difficulty === "core" ? 2 : 1) + 1,
-      0
-    );
-    const got = topic.quiz.reduce((sum, q) => sum + (progress.awarded[q.id] ?? 0), 0);
-    return maxStars === 0 ? 0 : Math.round((got / maxStars) * 100);
-  };
 
   return (
     <div className="pt-8 space-y-8">
@@ -46,7 +30,9 @@ export function Home() {
             <div className="font-semibold">{rank.name}</div>
             <div className="text-xs text-muted">
               ⭐ {progress.stars}
-              {rank.next ? ` · ${rank.next.min - progress.stars} to ${rank.next.name}` : " · top rank!"}
+              {rank.next
+                ? ` · ${rank.next.min - progress.stars} to ${rank.next.name}`
+                : " · top rank!"}
             </div>
           </div>
           <div className="card p-4 text-center">
@@ -83,7 +69,8 @@ export function Home() {
           className="block max-w-3xl mx-auto rounded-xl border border-gold bg-gold-soft/60 px-5 py-4 hover:opacity-90"
         >
           <span className="font-semibold text-gold">
-            🔁 {dueReviews.length} question{dueReviews.length === 1 ? "" : "s"} due for review
+            🔁 {dueReviews.length} question{dueReviews.length === 1 ? "" : "s"} due for
+            review
           </span>
           <span className="text-sm text-muted ml-2">
             Spaced repetition: nail them now and they come back less often.
@@ -91,58 +78,28 @@ export function Home() {
         </Link>
       )}
 
-      {parts.map(({ part, topics }) => (
-        <section key={part}>
-          <h2 className="text-lg font-semibold text-gold mb-3">{part}</h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {topics.map((t) => {
-              const read = progress.guidesRead[t.id]?.length ?? 0;
-              const mastery = ready ? masteryOf(t.id) : 0;
-              return (
-                <Link
-                  key={t.id}
-                  href={`/topic/${t.id}`}
-                  className="card p-5 hover:border-accent transition group"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="text-3xl" aria-hidden>
-                      {t.icon}
-                    </span>
-                    <div className="min-w-0">
-                      <div className="font-semibold leading-snug group-hover:text-accent transition">
-                        {t.order}. {t.title}
-                      </div>
-                      <div className="text-sm text-muted mt-1 line-clamp-2">{t.tagline}</div>
-                    </div>
-                  </div>
-                  {ready && (
-                    <div className="mt-4 flex items-center gap-3 text-xs text-muted">
-                      <span title="Guide sections read">
-                        📖 {read}/{t.guide.length}
-                      </span>
-                      <div
-                        className="flex-1 h-1.5 rounded-full bg-surface-2 overflow-hidden"
-                        title={`Quiz mastery ${mastery}%`}
-                      >
-                        <div
-                          className="h-full bg-accent"
-                          style={{ width: `${mastery}%` }}
-                        />
-                      </div>
-                      <span>{mastery}%</span>
-                      {(progress.challengeBest[t.id] ?? 0) > 0 && (
-                        <span title="Challenge best">
-                          🏅 {progress.challengeBest[t.id]}/{t.quiz.length}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </Link>
-              );
-            })}
+      <Link
+        href="/wealth"
+        className="block max-w-3xl mx-auto card p-5 hover:border-accent transition group"
+      >
+        <div className="flex items-center gap-4">
+          <span className="text-4xl" aria-hidden>
+            🏛️
+          </span>
+          <div>
+            <div className="font-semibold text-lg group-hover:text-accent transition">
+              The Allocator&apos;s Study →
+            </div>
+            <div className="text-sm text-muted mt-0.5">
+              A second track for stewards of serious wealth: asset allocation, sizing,
+              diversification, and capital preservation — Kelly, Merton, and Ed Thorp
+              applied to the whole portfolio.
+            </div>
           </div>
-        </section>
-      ))}
+        </div>
+      </Link>
+
+      <TopicGrid topics={BOOK_TOPICS} />
     </div>
   );
 }
