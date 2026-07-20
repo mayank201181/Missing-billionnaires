@@ -187,7 +187,7 @@ export const lifetimeSpending: Topic = {
       hints: [
         "Plug r = 0 into AF = (1 − (1+r)^(−n))/r conceptually: with no return, level spending over n years is just an even split.",
         "So AF = n. With n = 25, what fraction of wealth is one year's spending?",
-        "W/25 = 4% — the celebrated number is simply the zero-return, 25-year special case.",
+        "Convert W/25 into a percentage of wealth, and ask what its match with the celebrated number reveals about that number's generality.",
       ],
       strategy: "Try the simplest case first",
       guideRef: 3,
@@ -248,7 +248,7 @@ export const lifetimeSpending: Topic = {
       hints: [
         "First compute (1+r)^(−n): with 1.03^20 ≈ 1.81, its reciprocal is about 0.553.",
         "AF ≈ (1 − 0.553)/0.03 ≈ 14.9. The spending rate is 1/AF.",
-        "1/14.9 ≈ 6.7%. For the comparison case, remember AF = n when r = 0, so W/20 = 5%.",
+        "Invert 14.9 to get this year's spending rate. For the comparison case, remember AF = n when r = 0, so spending there is W/20 — express both as percentages.",
       ],
       strategy: "Reduce it to a solved problem (mortgage math)",
       guideRef: 3,

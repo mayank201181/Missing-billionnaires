@@ -71,13 +71,13 @@ export const kellyCriterion: Topic = {
           "Not remotely. Carla still captures about **75% of the maximum growth rate**. Aaron's long-run growth rate is **zero** — for all his extra risk, he compounds to nowhere. And anyone betting *beyond* 2x Kelly has a *negative* growth rate: they are grinding toward ruin while holding a genuinely favourable bet. The punishment for oversizing vastly exceeds the reward for undersizing.",
       },
       body:
-        "The growth rate as a function of bet size, `g(f)`, is a **downward-opening parabola**. It rises from zero (bet nothing, earn nothing), peaks at the Kelly fraction, and then falls. The algebra says it recrosses zero at exactly *twice* Kelly, and goes negative beyond that.\n\nThink about what that means. At 2x Kelly you are taking four times the variance of a half-Kelly bettor's position — and earning, in the long run, precisely nothing for it. Past 2x, a bet with positive expected value on every single play still destroys wealth over time, because occasional deep losses dominate the compounding.\n\nIn pure mathematics the parabola is symmetric around its peak. In practice the far side is much worse than the near side, for a reason the parabola doesn't show: on the timid side you merely grow slower, while on the aggressive side you take deep drawdowns from which you may never recover — capital, nerve, or career can all run out first. You cannot compound your way back from zero, and you rarely get to keep playing after a 90% loss.\n\nThis asymmetry is the strategic heart of the chapter: when uncertain about your edge — and you are always uncertain — err small. The cost of underbetting is modest; the cost of overbetting is catastrophic and, beyond a point, certain.",
+        "The growth rate as a function of bet size, `g(f)`, is a **downward-opening parabola**. It rises from zero (bet nothing, earn nothing), peaks at the Kelly fraction, and then falls. The algebra says it recrosses zero at exactly *twice* Kelly, and goes negative beyond that.\n\nThink about what that means. At 2x Kelly you are taking sixteen times the variance of a half-Kelly bettor's position — and earning, in the long run, precisely nothing for it. Past 2x, a bet with positive expected value on every single play still destroys wealth over time, because occasional deep losses dominate the compounding.\n\nIn pure mathematics the parabola is symmetric around its peak. In practice the far side is much worse than the near side, for a reason the parabola doesn't show: on the timid side you merely grow slower, while on the aggressive side you take deep drawdowns from which you may never recover — capital, nerve, or career can all run out first. You cannot compound your way back from zero, and you rarely get to keep playing after a 90% loss.\n\nThis asymmetry is the strategic heart of the chapter: when uncertain about your edge — and you are always uncertain — err small. The cost of underbetting is modest; the cost of overbetting is catastrophic and, beyond a point, certain.",
       whyItWorks:
         "For a continuous asset the growth rate is approximately g(f) = f × mu − f^2 × sigma^2 / 2 (using mu for the excess return). Setting the derivative to zero gives the peak at f* = mu/sigma^2 — the Kelly fraction. Because g is a parabola through the origin, it returns to zero at f = 2f* and is negative beyond. Plugging in f = f*/2 gives exactly 3/4 of the peak growth rate, which is why halving your bet costs so little.",
       strategies: ["Exploit asymmetry", "When uncertain, err on the safe side"],
       keyPoints: [
         "g(f) is a downward parabola: zero at f = 0, peak at Kelly, back to zero at exactly 2x Kelly, negative beyond",
-        "Betting 2x Kelly means four times half-Kelly's variance for zero long-run growth",
+        "Betting 2x Kelly means sixteen times half-Kelly's variance for zero long-run growth",
         "The penalty for oversizing exceeds the reward for undersizing — in practice you can't recover from deep ruin",
         "Since your edge is always uncertain, the asymmetry says: err on the small side",
       ],
@@ -85,12 +85,12 @@ export const kellyCriterion: Topic = {
     {
       heading: "Fractional Kelly: a speed limit, not a target",
       body:
-        "The professionals' resolution is **fractional Kelly**: bet a fixed fraction — typically a half or a third — of the full Kelly amount. The economics are startlingly favourable. Betting *half*-Kelly delivers about **75% of the maximum growth rate with roughly half the variance**. You give up a quarter of the growth to cut the wildness of the ride roughly in half — a trade almost every real investor should take.\n\nAnd here the book's threads tie together. Betting half-Kelly is *mathematically identical* to holding the Merton share with `gamma = 2`. Betting third-Kelly is the Merton share with `gamma = 3`. 'Fractional Kelly' and 'expected utility with realistic risk aversion' are **the same advice in different clothes** — gamblers and economists converged on one answer from opposite directions.\n\nPaul Samuelson's famous critique of Kelly says the same thing from the theory side: growth-optimality is not utility-optimality, and 'the long run' over which Kelly's dominance kicks in can be very long indeed — longer than an investing lifetime. Almost-sure victory *eventually* is cold comfort during the 90% drawdown you may suffer along the way.\n\nThe book's practical stance: treat full Kelly as a **speed limit**. Never knowingly exceed it — beyond it lies the cliff — and don't drive at the limit either. Cruise at a half or a third of Kelly, which is simply the Merton share for the risk aversion you actually have.",
+        "The professionals' resolution is **fractional Kelly**: bet a fixed fraction — typically a half or a third — of the full Kelly amount. The economics are startlingly favourable. Betting *half*-Kelly delivers about **75% of the maximum growth rate with roughly half the volatility**. You give up a quarter of the growth to cut the wildness of the ride roughly in half — a trade almost every real investor should take.\n\nAnd here the book's threads tie together. Betting half-Kelly is *mathematically identical* to holding the Merton share with `gamma = 2`. Betting third-Kelly is the Merton share with `gamma = 3`. 'Fractional Kelly' and 'expected utility with realistic risk aversion' are **the same advice in different clothes** — gamblers and economists converged on one answer from opposite directions.\n\nPaul Samuelson's famous critique of Kelly says the same thing from the theory side: growth-optimality is not utility-optimality, and 'the long run' over which Kelly's dominance kicks in can be very long indeed — longer than an investing lifetime. Almost-sure victory *eventually* is cold comfort during the 90% drawdown you may suffer along the way.\n\nThe book's practical stance: treat full Kelly as a **speed limit**. Never knowingly exceed it — beyond it lies the cliff — and don't drive at the limit either. Cruise at a half or a third of Kelly, which is simply the Merton share for the risk aversion you actually have.",
       whyItWorks:
         "Using g(f) = f × mu − f^2 × sigma^2/2, betting a fraction c of Kelly gives growth equal to (2c − c^2) times the maximum. At c = 1/2 that is 3/4 of peak growth, while variance — proportional to f^2 — falls by a factor of four; the *swing size* (volatility of the ride) is halved. Meanwhile the Merton share with gamma = 2 is (mu − r)/(2 sigma^2), which is literally half the Kelly allocation — so half-Kelly and gamma = 2 are one and the same policy.",
       strategies: ["Unify two frameworks", "Trade a little upside for a lot of safety"],
       keyPoints: [
-        "Half-Kelly captures about 75% of maximum growth with roughly half the variance",
+        "Half-Kelly captures about 75% of maximum growth with roughly half the volatility",
         "Half-Kelly = Merton share with gamma = 2; third-Kelly = gamma = 3 — fractional Kelly is expected utility with realistic risk aversion",
         "Samuelson's critique: growth-optimality is not utility-optimality, and the long run is very long",
         "Treat full Kelly as a speed limit: never exceed it, and normally cruise at a half or a third",
@@ -172,7 +172,7 @@ export const kellyCriterion: Topic = {
       ],
       answerIndex: 3,
       explanation:
-        "The growth curve g(f) is a downward parabola through the origin that peaks at Kelly and recrosses zero at exactly 2x Kelly. So the double-Kelly bettor endures four times the variance of a half-Kelly bettor and compounds to nothing; beyond 2x, growth turns negative even though every individual bet has positive expected value.",
+        "The growth curve g(f) is a downward parabola through the origin that peaks at Kelly and recrosses zero at exactly 2x Kelly. So the double-Kelly bettor endures sixteen times the variance of a half-Kelly bettor and compounds to nothing; beyond 2x, growth turns negative even though every individual bet has positive expected value.",
       difficulty: "core",
       hints: [
         "Growth versus bet size is a downward-opening parabola. Where does a parabola that starts at zero and peaks at f* return to zero?",
@@ -186,8 +186,8 @@ export const kellyCriterion: Topic = {
       id: "kelly-q6",
       question: "According to the book, what does betting half-Kelly deliver compared with full Kelly?",
       options: [
-        "About 75% of the maximum growth rate, with roughly half the variance",
-        "About 50% of the maximum growth rate, with half the variance",
+        "About 75% of the maximum growth rate, with roughly half the volatility",
+        "About 50% of the maximum growth rate, with half the volatility",
         "About 90% of the maximum growth rate, with the same variance",
         "The full maximum growth rate, since fractional Kelly loses nothing in the long run",
       ],
@@ -198,7 +198,7 @@ export const kellyCriterion: Topic = {
       hints: [
         "The growth curve is a parabola, so it is flat near its peak — moving halfway down the bet axis costs surprisingly little growth.",
         "A fraction c of Kelly earns (2c − c^2) of the maximum growth. Evaluate that at c = 1/2.",
-        "2 × (1/2) − (1/2)^2 = 1 − 1/4 = 3/4 of peak growth, while volatility scales with the bet, so it is roughly halved.",
+        "Compute 2 × (1/2) − (1/2)^2 as a fraction of peak growth, and remember that volatility scales linearly with the bet — what happens to each when you halve the bet?",
       ],
       strategy: "Plug into the formula",
       guideRef: 4,
@@ -220,7 +220,7 @@ export const kellyCriterion: Topic = {
       hints: [
         "Kelly for a continuous asset is the excess return divided by the *variance*, not the volatility — remember to square sigma.",
         "sigma = 0.20, so sigma^2 = 0.04. Now compute 0.05/0.04.",
-        "That gives 1.25, or 125%. The gamma = 2 investor uses k = (mu − r)/(gamma × sigma^2) — divide the Kelly answer by 2.",
+        "0.05/0.04 comes out above 1 — Kelly happily prescribes leverage. The gamma = 2 investor uses k = (mu − r)/(gamma × sigma^2) — divide the Kelly answer by 2.",
       ],
       strategy: "Careful with units: variance, not volatility",
       guideRef: 1,
@@ -241,8 +241,8 @@ export const kellyCriterion: Topic = {
       difficulty: "challenge",
       hints: [
         "Substitute c = 1.5 into (2c − c^2) carefully: compute 1.5 squared first.",
-        "2 × 1.5 = 3 and 1.5^2 = 2.25, so the growth fraction is 3 − 2.25 = 0.75. Which other value of c also gives 0.75?",
-        "By the parabola's symmetry, c = 0.5 and c = 1.5 sit equally far from the peak at c = 1. To compare risk, note variance scales as c^2: (1.5)^2/(0.5)^2 = 9.",
+        "2 × 1.5 = 3 and 1.5^2 = 2.25 — subtract. Which other value of c gives the same growth fraction?",
+        "By the parabola's symmetry, c = 0.5 and c = 1.5 sit equally far from the peak at c = 1. To compare risk, note variance scales as c^2 — form the ratio (1.5)^2/(0.5)^2.",
       ],
       strategy: "Exploit symmetry",
       guideRef: 3,
