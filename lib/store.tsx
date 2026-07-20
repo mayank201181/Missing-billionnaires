@@ -6,7 +6,6 @@ import React, {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import type { Difficulty } from "./types";
@@ -107,15 +106,14 @@ const StoreContext = createContext<StoreValue | null>(null);
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState<Progress>(emptyProgress);
   const [ready, setReady] = useState(false);
-  const progressRef = useRef(progress);
-  progressRef.current = progress;
 
-  // load once on mount
+  // load once on mount (must run after hydration; localStorage is client-only)
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<Progress>;
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setProgress({ ...emptyProgress(), ...parsed });
       }
     } catch {

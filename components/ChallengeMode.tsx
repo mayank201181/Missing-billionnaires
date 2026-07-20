@@ -54,7 +54,9 @@ export function ChallengeMode({ topic }: { topic: Topic }) {
 
   // record best when timer expires (phase changed by interval)
   const scoreRef = useRef(score);
-  scoreRef.current = score;
+  useEffect(() => {
+    scoreRef.current = score;
+  }, [score]);
   useEffect(() => {
     if (phase === "done") recordChallenge(topic.id, scoreRef.current);
     return () => {
