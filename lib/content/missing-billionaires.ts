@@ -140,7 +140,7 @@ export const missingBillionaires: Topic = {
       hints: [
         "Think about what a population of 4,000 independent trials tells you that one family's story cannot.",
         "If each family independently survived with probability p per generation, how many of 4,000 survive four generations?",
-        "Even p = 0.5 per generation leaves 4,000 × (1/16) ≈ 250 wealthy families. Zero survivors needs p near 0 — that's systematic.",
+        "Even p = 0.5 per generation leaves 4,000 × (1/16) ≈ 250 wealthy families. Compare that with the roughly zero survivors actually observed — what must the true survival rate have been?",
       ],
       strategy: "Think in populations, not anecdotes",
       guideRef: 1,
@@ -221,7 +221,7 @@ export const missingBillionaires: Topic = {
       hints: [
         "Spending a fixed percentage of wealth each year acts like a haircut on the annual return.",
         "Net growth ≈ 6.5% − 3% = 3.5% per year. Now compound that for 120 years.",
-        "Rule of 72: at 3.5%, doubling takes ~20 years, so ~6 doublings. 2^6 = 64.",
+        "Rule of 72: at 3.5%, doubling takes ~20 years, so ~6 doublings. What is 2^6?",
       ],
       strategy: "Rule of 72 / doubling times",
       guideRef: 0,

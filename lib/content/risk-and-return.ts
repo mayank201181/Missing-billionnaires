@@ -123,7 +123,7 @@ export const riskAndReturn: Topic = {
       hints: [
         "The book's forward-looking estimate is the cyclically-adjusted earnings yield. How does it relate to CAPE?",
         "Take the reciprocal: earnings yield = 1/CAPE. What is 1/25?",
-        "1/25 = 0.04, i.e. 4% — and it is a *real* return, since earnings tend to keep up with inflation.",
+        "Express 1/25 as a percentage — and remember it is a *real* return, since earnings tend to keep up with inflation.",
       ],
       strategy: "Take the reciprocal",
       guideRef: 3,
@@ -139,7 +139,7 @@ export const riskAndReturn: Topic = {
       hints: [
         "There is a standard formula for the precision of an estimated mean from T independent annual observations.",
         "Standard error = sigma / sqrt(T). Plug in sigma = 20% and T = 100.",
-        "sqrt(100) = 10, so the standard error is 20% / 10 = 2%.",
+        "sqrt(100) = 10 — now finish the division.",
       ],
       strategy: "Quantify your uncertainty",
       guideRef: 2,
@@ -221,7 +221,7 @@ export const riskAndReturn: Topic = {
       hints: [
         "Start from the standard error formula sigma / sqrt(T) and set it equal to the 1% target.",
         "Solve for sqrt(T): sqrt(T) = 20 / 1 = 20. Now what is T?",
-        "T = 20² = 400 years. And beware the daily-data option — recall why frequency doesn't help the mean.",
+        "Remember to square: T = (sqrt(T))². And beware the daily-data option — recall why frequency doesn't help the mean.",
       ],
       strategy: "Work backwards from the target",
       guideRef: 2,

@@ -143,7 +143,7 @@ export const mertonShare: Topic = {
       hints: [
         "Only the numerator of the formula changed. How does k scale with the numerator?",
         "k is proportional to the premium: half the premium means half the share.",
-        "Check: 0.025 / 0.08 = 0.3125.",
+        "Check your answer directly: compute 0.025 / (2 * 0.04).",
       ],
       strategy: "Vary one input at a time",
       guideRef: 2,
@@ -165,7 +165,7 @@ export const mertonShare: Topic = {
       hints: [
         "Does sigma enter the formula directly, or as sigma squared?",
         "Halving sigma changes sigma^2 from 0.04 to 0.01 — a factor of 4, not 2.",
-        "A denominator that shrinks 4x makes the whole fraction grow 4x.",
+        "The whole denominator gamma * sigma^2 shrinks by that same factor — what does that do to the fraction?",
       ],
       strategy: "Consider extremes",
       guideRef: 2,
@@ -203,7 +203,7 @@ export const mertonShare: Topic = {
       hints: [
         "Square the volatility first: 0.15^2 = ?",
         "Denominator = gamma * variance = 2 * 0.0225 = 0.045.",
-        "k = 0.036 / 0.045. Multiply top and bottom by 1000: 36/45 = 4/5.",
+        "k = 0.036 / 0.045. Multiply top and bottom by 1000 and simplify the fraction 36/45.",
       ],
       strategy: "Careful substitution",
       guideRef: 0,
@@ -225,7 +225,7 @@ export const mertonShare: Topic = {
       hints: [
         "Write CE(k) = k*(mu − r) − 0.5*gamma*k^2*sigma^2 and plug in k = 2k*.",
         "The first term doubles; the k^2 in the second term means the cost quadruples: 0.5 * 4 = 2.",
-        "CE(2k*) = 2k*(mu − r) − 2*gamma*k*^2*sigma^2. Use k* = (mu − r)/(gamma*sigma^2) — the two terms are equal.",
+        "CE(2k*) = 2k*(mu − r) − 2*gamma*k*^2*sigma^2. Substitute k* = (mu − r)/(gamma*sigma^2) and compare the sizes of the two terms.",
       ],
       strategy: "Stress-test the boundary",
       guideRef: 4,

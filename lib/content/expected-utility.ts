@@ -244,7 +244,7 @@ export const expectedUtility: Topic = {
       hints: [
         "Here sigma is the gamble size as a fraction of wealth: 0.02 for the first gamble, 0.2 for the second.",
         "First gamble: 0.5 × 2 × (0.02)^2. Careful squaring: (0.02)^2 = 0.0004.",
-        "Second gamble: 0.5 × 2 × (0.2)^2 = 0.04. Compare the two answers as a ratio.",
+        "Second gamble: 0.5 × 2 × (0.2)^2 — mind the squaring again. Then compare the two premiums as a ratio.",
       ],
       strategy: "Work a concrete example",
       guideRef: 3,

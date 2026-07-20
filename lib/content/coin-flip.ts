@@ -8,7 +8,7 @@ export const coinFlip: Topic = {
   order: 2,
   tagline: "Smart people, a known 60% edge, real money — and most of them blew it",
   intro:
-    "How badly can smart people play a game they fully understand? In 2016, Victor Haghani and Rich Dewey handed 61 finance students and young finance professionals $25 each of real money and let them bet for about half an hour on a virtual coin they were *told* lands heads 60% of the time. The result was carnage: about a third finished with less than they started with, 28% lost everything, and only 21% reached the $250 cap — a cap that careful play reaches roughly 95% of the time. This topic unpacks the experiment and the piece of mathematics the players were missing: expected log growth, which says the right bet is a constant 20% of your current bankroll — and that betting much more than twice that turns a wonderful game into a losing one.",
+    "How badly can smart people play a game they fully understand? In 2016, Victor Haghani and Rich Dewey handed 61 finance students and young finance professionals $25 each of real money and let them bet for about half an hour on a virtual coin they were *told* lands heads 60% of the time. The result was carnage: about a third finished with less than they started with, 28% lost everything, and only 21% reached the $250 cap — a cap that careful play reaches roughly 95% of the time. This topic unpacks the experiment and the piece of mathematics the players were missing: expected log growth, which says the right bet is a constant 20% of your current bankroll — and that betting more than about twice that turns a wonderful game into a losing one.",
   guide: [
     {
       heading: "A $25 stake and a 60/40 coin",

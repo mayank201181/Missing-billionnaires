@@ -222,7 +222,7 @@ export const volatilityDrag: Topic = {
       hints: [
         "g(L) = L·mu − L²·sigma²/2 is a downward-opening parabola in L. Where does a parabola peak?",
         "Set the slope to zero: mu − L·sigma² = 0, so L* = mu/sigma². Plug in mu = 0.06 and sigma² = 0.04.",
-        "L* = 1.5. The parabola passes through zero at L = 0, so by symmetry it hits zero again at 2L* — verify g(3) yourself.",
+        "The parabola passes through zero at L = 0, so by symmetry it hits zero again at 2L* — verify by computing g there.",
       ],
       strategy: "Find the peak of the parabola",
       guideRef: 3,
@@ -244,7 +244,7 @@ export const volatilityDrag: Topic = {
       hints: [
         "Two different rates: the median compounds at the geometric rate g ≈ mu − sigma²/2, the mean at the arithmetic rate mu.",
         "g = 7% − 2% = 5%. You need 1.05^30 and 1.07^30 — use rule-of-72 doubling times instead of brute force.",
-        "At 5%, doubling takes ~14.4 years, so ~2.1 doublings ≈ 4.3x. At 7%, doubling takes ~10.3 years, so ~2.9 doublings ≈ 7.6x.",
+        "At 5%, doubling takes ~14.4 years; at 7%, ~10.3 years. Count the doublings each rate fits into 30 years and convert to wealth multiples.",
       ],
       strategy: "Rule of 72 / doubling times",
       guideRef: 2,
