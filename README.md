@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Missing Billionaires — Study Lab
 
-## Getting Started
+An interactive study guide to *The Missing Billionaires: A Guide to Better Financial Decisions* by Victor Haghani & James White. Learn the whole book step by step: why sizing beats stock-picking, how expected utility turns risk into arithmetic, and how to make every big money decision with one framework.
 
-First, run the development server:
+**Live app:** https://missing-billionaires-study.vercel.app
+
+## What's inside
+
+- **12 topics covering the full book** across four parts — the missing-billionaires puzzle, the $25 biased-coin experiment, expected utility & risk aversion, estimating risk & return, volatility drag, the Merton share, the Kelly criterion, fat tails & options, lifetime spending rules, annuities & insurance, human capital, and taxes & the closing checklist.
+- **Problem-first guides** — each section opens with a "try this first" problem, then reveals the idea, with *why it works* derivations and named strategy tags.
+- **Quizzes with hint ladders** — 96 questions in warm-up / core / challenge tiers; hints unlock one step at a time and hint-free solves earn a bonus star.
+- **An interactive explorable per topic** — dynasty compounding simulator, coin-flip casino, utility-curve explorer, portfolio mixer, volatility-drag machine, Merton share calculator, Kelly curve, option payoff sculptor, retirement spending lab, annuity desk, total-wealth balance sheet, and tax-drag meter.
+- **Spaced repetition** — missed questions come back on a 1/3/7/16/35-day schedule.
+- **Gamification** — stars, ranks, daily streaks, a daily-minutes goal, and a timed challenge mode per topic.
+- **AI tutor** — Socratic hints and explanations on every topic (needs an API key, see below).
+
+Progress is stored in the browser (`localStorage`) — no account needed.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Enabling the AI tutor
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The tutor endpoint (`app/api/ai/route.ts`) uses the Anthropic API. Without a key the rest of the app works fine and the tutor shows a friendly notice. To enable it, set:
 
-## Learn More
+```
+ANTHROPIC_API_KEY=sk-ant-...
+AI_MODEL=claude-opus-4-8   # optional override
+```
 
-To learn more about Next.js, take a look at the following resources:
+locally in `.env.local`, or in the Vercel project's environment variables (Settings → Environment Variables), then redeploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `lib/types.ts` — content data model (topics, guide sections, MCQs with hints/difficulty)
+- `lib/content/` — one audited content module per topic + registry (`index.ts`)
+- `lib/store.tsx` — progress store: stars, streaks, spaced repetition, daily goals
+- `components/` — learning engine (GuideView, QuizRunner, ChallengeMode, AskAI)
+- `components/explorables/` — the 12 interactive widgets + shared chart/slider kit
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Unofficial study companion for educational use — not investment advice.
