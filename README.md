@@ -3,6 +3,7 @@
 An interactive study guide to *The Missing Billionaires: A Guide to Better Financial Decisions* by Victor Haghani & James White. Learn the whole book step by step: why sizing beats stock-picking, how expected utility turns risk into arithmetic, and how to make every big money decision with one framework.
 
 **Live app:** https://missing-billionaires-study.vercel.app
+**The Allocator's Study (HNW track):** https://missing-billionaires-study.vercel.app/wealth
 
 ## What's inside
 
@@ -15,6 +16,10 @@ An interactive study guide to *The Missing Billionaires: A Guide to Better Finan
 - **AI tutor** — Socratic hints and explanations on every topic (needs an API key, see below).
 
 Progress is stored in the browser (`localStorage`) — no account needed.
+
+## The Allocator's Study (second track)
+
+A dedicated dashboard at `/wealth` for high-net-worth readers focused on **capital preservation with consistent growth** — allocation and sizing decisions, never timing. Eight topics built on the book, the Kelly criterion, and Ed Thorp's teachings: the preservation mandate, sizing beats selection, diversification, the asset-class menu with honest expected returns, the policy portfolio, concentrated wealth & the founder's problem, drawdowns & leverage, and the family-office playbook. Each has its own explorable (purchasing-power eroder, growth-vs-risk frontier, diversification lab, expected-return menu, policy-portfolio builder, concentration calculator, drawdown laboratory, perpetuity spending lab).
 
 ## Running locally
 
